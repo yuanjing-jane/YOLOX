@@ -12,7 +12,10 @@ import cv2
 import torch
 
 import sys
-sys.path.append(r'/mnt/d/work/project/project_fish/code/yolox/YOLOX')
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.append(str(ROOT))
 
 from yolox.data.data_augment import ValTransform
 from yolox.data.datasets import COCO_CLASSES

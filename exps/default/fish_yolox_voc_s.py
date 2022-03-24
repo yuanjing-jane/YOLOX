@@ -27,8 +27,18 @@ class Exp(MyExp):
         import time
         time.sleep(5)
         self.data_dir = "fish"
-        self.image_sets_train = ['train', 'val']
+        self.image_sets_train = ['train']
         self.image_sets_val = ['val']
+        
+        self.train_ann = None
+        # name of annotation file for evaluation
+        self.val_ann = None
+        # name of annotation file for testing
+        self.test_ann = None
+        self.max_epoch = 500
+        self.data_num_workers = 4
+        self.input_size = (640, 640)
+        
 
     def get_data_loader(self, batch_size, is_distributed, no_aug=False, cache_img=False):
         from yolox.data import (
